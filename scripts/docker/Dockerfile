@@ -5,7 +5,7 @@ MAINTAINER Devis Lucato (https://github.com/dluc)
 LABEL Tags="Azure,IoT,Solutions,Simulation,.NET"
 
 COPY . /app/
-WORKDIR /app
+WORKDIR /
 
 RUN \
     # Ensures the entry point is executable
