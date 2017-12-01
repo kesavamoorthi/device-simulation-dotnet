@@ -1,0 +1,70 @@
+{
+    "SchemaVersion": "1.0.0",
+    "Id": "mtu-engine-01",
+    "Version": "0.0.1",
+    "Name": "MTU-Engine",
+    "Description": "Monitors MTU-Engine's monitor temperature, pressure sensors and the location via CAN bus interface",
+    "Protocol": "MQTT",
+    "Simulation": {
+        "InitialState": {
+            "online": true,
+            "status":"on",
+            "temperature": 75.0,
+            "temperature_unit": "F",
+            "pressure": 150.0,
+            "pressure_unit": "bar",
+            "simulation_state": "normal"
+        },
+        "Script": {
+            "Type": "javascript",
+            "Path": "mtu-engine-01-state.js",
+            "Interval": "00:00:10"
+        }
+    },
+    "Properties": {
+        "Type": "MTU-Engine",
+        "Firmware": "1.0",
+        "Model": "mtu#####",
+        "Engine Status" : "Running",
+        "Location": "Pacific Ocean",
+        "Latitude": 46.489492,
+        "Longitude": -4.790111
+    },
+    "Tags": {
+        "Location": "Germany"
+    },
+    "Telemetry": [
+        {
+            "Interval": "00:00:10",
+            "MessageTemplate": "{\"temperature\":${temperature},\"temperature_unit\":\"${temperature_unit}\",\"pressure\":${pressure},\"pressure_unit\":\"${pressure_unit}\"}",
+            "MessageSchema": {
+                "Name": "mtu-engine-sensors;v1",
+                "Format": "JSON",
+                "Fields": {
+                    "temperature": "double",
+                    "temperature_unit": "text",
+                    "pressure": "double",
+                    "pressure_unit": "text"
+                }
+            }
+        }
+    ],
+    "CloudToDeviceMethods": {
+        "Reboot": {
+            "Type": "javascript",
+            "Path": "Reboot-method.js"
+        },
+        "FirmwareUpdate": {
+            "Type": "javascript",
+            "Path": "FirmwareUpdate-method.js"
+        },
+        "SwitchOn": {
+            "Type": "javascript",
+            "Path": "SwitchOn-method.js"
+        },
+        "SwitchOff": {
+            "Type": "javascript",
+            "Path": "SwitchOff-method.js"
+        }
+    }
+}
