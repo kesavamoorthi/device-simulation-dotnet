@@ -9,7 +9,7 @@ WORKDIR /app
 
 RUN \
     # Ensures the entry point is executable
-    chmod ugo+x /app/run.sh && \
+    chmod +x /app/run.sh && \
     # Allow user to mount custom files in /add/data.
     # Both web service and simulation agent have a copy of the "data" folder,
     # inherited from the Service project. This remove the two copies and move
