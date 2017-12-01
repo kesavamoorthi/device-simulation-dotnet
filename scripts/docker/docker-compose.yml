@@ -3,7 +3,7 @@
 # - open a console and `cd` into the folder that contains this file
 # - run `docker-compose up`
 
-version: "3"
+version: "4"
 
 services:
   devicesimulation:
